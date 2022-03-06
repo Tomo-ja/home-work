@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./reset.css">
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	<header id="respons-header" class="flex space-between">
+		<div class="img-holder"><img src="../image/img_share_logo.png" alt=""></div>
+		<div class="flex">
+			<p><a href="" class="green">Sign In</a></p>
+			<div class="btn">
+				<a href="">Get started</a>
+			</div>
+		</div>
+	</header>
+	<div class="container flex space-between">
+		<div id="side-menu" class="flex space-between">
+			<div class="img-holder">
+				<a href="../index.html"><img src="../image/img_share_logo.png" alt=""></a>
+			</div>
+			<nav>
+				<ul class="flex space-between">
+					<li><a href=""></a><img src="../image/icon_share_home.svg" alt=""></li>
+					<li><a href=""></a><img src="../image/icon_share_notification.svg" alt=""></li>
+					<li><a href=""></a><img src="../image/icon_share_bookmark.svg" alt=""></li>
+					<li><a href=""></a><img src="../image/icon_share_note.svg" alt=""></li>
+					<li><hr></li>
+					<li><a href=""></a><img src="../image/icon_share_write.svg" alt=""></li>
+				</ul>
+			</nav>
+			<div>
+				<!-- dummy content for design -->
+			</div>
+		</div>
+
+		<main>
+			<section class="publisher-info">
+				<div class="inner flex">
+					<div class="img-holder"><img class="img-radius" src="./image/cicc_logo.png" alt=""></div>
+					<p><span class="gray">Published in </span>CICCC assignment</p>
+					<p>·</p>
+					<p><a href="" class="green">Follow</a></p>
+				</div>
+			</section>
+				<section class="author">
+					<div class="inner">
+						<div class="author-info flex">
+							<div class="img-holder"><img class="img-radius" src="./image/icon.jpg" alt=""></div>
+							<div>
+								<p>Tomo H.</p>
+								<p>Mar 6 · 5 min read</p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="content">
+					<div class="inner">
+						<p class="accent">ciccc assignment</p>
+						<h1>How to returns the type of numbers <br> in a given array with JavaScript</h1>
+						<p class="accent">References: Create a function that will receive an array of numbers as an argument and return a new array with distinct elements.</p>
+						<br>
+						<p>In this article, I'm introducing how to return what kind of numbers appears in a given array, omit the numbers appear after second time.</p>
+						<div>
+							<img src="./image/img_article_result.png" alt="">
+							<p>How the function would work</p>
+						</div>
+						<p>We will use "forEach" function for a given array as well as "find" function to check whether a number appears in the array more than 2 times.</p>
+						<h2 class="sub-title">Quick answer</h2>
+						<pre>
+							<code>
+function varietyOfNumber(originalArray) {
+	let resultArray = [ ]
+	originalArray.forEach( num => {
+		if ( !resultArray.find( value => value === num )) {
+			resultArray.push( num )
+		}
+	});
+	return resultArray
+}</code>
+						</pre>
+						<h2 class="sub-title">What's happening in the function</h2>
+						<ol>
+							<li>Receive a array having some numbers as an argument</li>
+							<li>Create a empty array that end up returning as a result</li>
+							<li>Pick up every single number from the given array one by one <br>with "forEach" function</li>
+							<li>Check whether or not the number picked up is in the result array</li>
+							<li>If NO, add the number into the result array</li>
+							<li>If YES, do nothing and proceed to next number in given array</li>
+							<li>Return the result array</li>
+						</ol>
+						<div>
+							<img src="./image/img_explain.jpeg" alt="">
+							<p></p>
+						</div>
+
+					
+						<h2 class="sub-title">Explain "forEach" function</h2>
+						<p>This function is prepared by JavaScript itself, applying for only Array type of object. To use this, you can simply add ".forEach" after an array object. Following "forEach", you set a function with argument inside of "( )", which is what you want to do each element on.
+						<br><br>
+						The each number going to be assigned temporary valuable (in the answer function, "num") and be processed by following a function inside of "{}" as syntax of JavaScript ES6.
+						</p>
+						<h2 class="sub-title">Explain "find" function</h2>
+						<p>This function is also prepared by JavaScript, applying for only Array type of object. Same as "forEach" function, you can add it after an array. However, what it does is not same as "forEach" whatsoever.<br>
+						<br>
+						As name of function indicates, it returns whether an element that you set is in an array or not. If there is, then returns that element, by the way it returns first matched element if there are more than 2 elements that is matched. If there is not such an element, then returns undefined, which is considered as false in JavaScript.<br>
+						<br>
+						Inside of "( )", you set temporary valuable that would be assigned each element in a array you want to search on and the key word that you want to find.In our case, "value" is temporary one, "===" is the comparison operator meaning both of them are completely same, and "num" is the key word that is assigned the each number came from "forEach" function 
+						
+						</p>
+						<h2 class="sub-title">Try it on Code Pen</h2>
+						<div>
+							<p class="codepen" data-height="300" data-default-tab="js,result" data-slug-hash="abVMPqo" data-editable="true" data-user="hare99" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+								<span>See the Pen <a href="https://codepen.io/hare99/pen/abVMPqo">
+								Untitled</a> by Tomo (<a href="https://codepen.io/hare99">@hare99</a>)
+								on <a href="https://codepen.io">CodePen</a>.</span>
+							</p>
+						</div>
+						<p></p>
+					</div>
+					<div class="content-footer">
+						<div class="inner flex space-between">
+							<div class="flex">
+								<div class="review flex">
+									<div class="img-holder"><img src="../image/icon_article_hand-clap.svg" alt=""></div>
+									<div>68</div>
+								</div>
+								<div class="review flex">
+									<div class="img-holder"><img src="../image/icon_article_comment.svg" alt=""></div>
+									<div>2</div>
+								</div>
+							</div>
+							<div class="flex social-media">
+								<div class="img-holder"><img src="../image/icon_share_twitter.svg" alt=""></div>
+								<div class="img-holder"><img src="../image/icon_share_facebook.svg" alt=""></div>
+								<div class="img-holder"><img src="../image/icon_share_linkedin.svg" alt=""></div>
+								<div class="img-holder"><img src="../image/icon_share_link.svg" alt=""></div>
+								<div class="img-holder"><img src="../image/icon_share_bookmark.svg" alt=""></div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+			<section class="recommend">
+				<div class="inner">
+					<div class="flex space-between">
+						<div class="text-area">
+							<h3 >More from Language explained</h3>
+							<p class="gray">A publication written by linguists for everyone curious about the inner workings of human language. How different are languages and why? What is grammar and why does it exist? We explore these questions and more!</p>
+						</div>
+						<div>
+							<div class="btn-follow">
+								<a href="">Follow</a>
+							</div>
+						</div>
+					</div>
+					<article class="flex space-between">
+						<div class="text-area">
+							<div class="flex">
+								<div class="img-holder"><img class="img-radius" src="./image/icon.jpg" alt=""></div>
+								<p>Ana K. <span class="gray"> · Jan 30</span></p>
+							</div>
+							<h2>We All Speak Different Languages: Why Is That a Good Thing?</h2>
+							<p>Because we can have the experience of learning each other’s languages. As a linguist, I often get asked the following: “Wouldn’t it be better if we all</p>
+							<div class="flex space-between">
+								<div class="flex article-footer">
+									<p class="category">Language</p>
+									<p class="gray">5 min read</p>
+								</div>
+								<div class="img-holder">
+									<img src="../image/icon_share_bookmark.svg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="img-holder">
+							<img src="../image/img_article_sample1.jpg" alt="">
+						</div>
+					</article>
+					<article class="flex space-between">
+						<div class="text-area">
+							<div class="flex">
+								<div class="img-holder"><img class="img-radius" src="./image/icon.jpg" alt=""></div>
+								<p>Ana K. <span class="gray"> · Nov 27, 2021</span></p>
+							</div>
+							<h2>What Is a Language?</h2>
+							<p>A dialog about the difference between dialects and languages Just when I thought that this blog could not be any more about addressing big questions of linguistics and other humanistic disciplines, I found myself</p>
+							<div class="flex space-between">
+								<div class="flex article-footer">
+									<p class="category">Language</p>
+									<p class="gray">5 min read</p>
+								</div>
+								<div class="img-holder">
+									<img src="../image/icon_share_bookmark.svg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="img-holder">
+							<img src="../image/img_article_sample2.jpg" alt="">
+						</div>
+					</article>
+					<article class="flex space-between">
+						<div class="text-area">
+							<div class="flex">
+								<div class="img-holder"><img class="img-radius" src="./image/icon.jpg" alt=""></div>
+								<p>Ana K. <span class="gray"> · Nov 13, 2021</span></p>
+							</div>
+							<h2>Language Explained</h2>
+							<p>Hello curious minds, Thank you for signing up for Language Explained, where we tackle big questions about how language works. Most of the articles so far have been written by me (Ana Krajinović) and I am also the</p>
+							<div class="flex space-between">
+								<div class="flex article-footer">
+									<p class="category">Language</p>
+									<p class="category">1 min read</p>
+								</div>
+								<div class="img-holder"> 
+									<img src="../image/icon_share_bookmark.svg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="img-holder">
+							<img src="../image/img_article_sample3.jpg" alt="">
+						</div>
+					</article>
+					<article class="flex space-between">
+						<div class="text-area">
+							<div class="flex">
+								<div class="img-holder"><img class="img-radius" src="./image/icon.jpg" alt=""></div>
+								<p>Ana K. <span class="gray"> · Nov 12, 2021</span></p>
+							</div>
+							<h2>Fieldwork Is a “Hero’s Journey” of Linguistics: What Can You Learn From It?</h2>
+							<p>6 fieldwork steps that lead to great personal and scientific discoveries, told in comics. You are sitting in public transport, deep in your thoughts, when</p>
+							<div class="flex space-between">
+								<div class="flex article-footer">
+									<p class="category">Language</p>
+									<p class="gray">8 min read</p>
+								</div>
+								<div class="img-holder">
+									<img src="../image/icon_share_bookmark.svg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="img-holder">
+							<img src="../image/img_article_sample4.jpg" alt="">
+						</div>
+					</article>
+					<article class="flex space-between">
+						<div class="text-area">
+							<div class="flex">
+								<div class="img-holder"><img class="img-radius" src="./image/icon.jpg" alt=""></div>
+								<p>Rose Hoersting<span class="gray"> · Oct 17, 2021</span></p>
+							</div>
+							<h2>Do All Languages Have Adjectives?</h2>
+							<p>Not really, read more to find out why 1. Introduction German students are taught the concept of adjectives by the name “Wie-Wort” (literally: “how-word”) in elementary school. It seems therefore self-explanatory that</p>
+							<div class="flex space-between">
+								<div class="flex article-footer">
+									<p class="category">Linguistics</p>
+									<p class="gray">9 min read</p>
+								</div>
+								<div class="img-holder">
+									<img src="../image/icon_share_bookmark.svg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="img-holder">
+							<img src="../image/img_article_sample1.jpg" alt="">
+						</div>
+					</article>
+					<div>
+						<p class="btn-follow read-more"><a href="">Read more from Language explained</a></p>
+					</div>
+				</div>
+			</section>
+			<section class="more-article">
+				<div class="inner">
+					<h2>More from Medium</h2>
+					<div class="flex wrap">
+						<div class="flex">
+							<div class="img-holder"><img src="../image/img_article_sample1.jpg" alt=""></div>
+							<p>Are these 4 False Beliefs Interfering With Your Language Learning?</p>
+						</div>
+						<div class="flex">
+							<div class="img-holder"><img src="../image/img_article_sample2.jpg" alt=""></div>
+							<p>One Hundred Ways To Die<br>
+							<span>A a linguistic journey into the heart of the nati..</span></p>
+						</div>
+						<div class="flex">
+							<div class="img-holder"><img src="../image/img_article_sample3.jpg" alt=""></div>
+							<p>Relearning my Native Tongue <br>
+							<span>Mandarin is, and will forever be, my mother’s tongue.</span></p>
+						</div>
+						<div class="flex">
+							<div class="img-holder"><img src="../image/img_article_sample4.jpg" alt=""></div>
+							<p>Understanding Sign Language Development: Acquisition of Grammatical Facial Expressions</p>
+						</div>
+						<div class="flex">
+							<div class="img-holder"><img src="../image/img_article_sample1.jpg" alt=""></div>
+							<p>What No One Tells You About Learning a New Language</p>
+						</div>
+						<div class="flex">
+							<div class="img-holder"><img src="../image/img_article_sample2.jpg" alt=""></div>
+							<p>Why Is Learning a Language More Difficult than Other Skills?</p>
+						</div>
+						<div class="flex">
+							<div class="img-holder"><img src="../image/img_article_sample3.jpg" alt=""></div>
+							<p>The Origins of UK Place Names <br>
+								<span>Chesters and hamptons and burghs, oh my</span></p>
+						</div>
+						<div class="flex">
+							<div class="img-holder"><img src="../image/img_article_sample4.jpg" alt=""></div>
+							<p>How To ‘Bí’ in Irish Gaelic <br>
+							<span>And how to use the copula</span></p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<aside id="profile">
+			<div class="flex space-between">
+				<div class="btn">
+					<a href="">Get started</a>
+				</div>
+				<p><a href="" class="green">Sign In</a></p>
+			</div>
+			<div class="search-box"><input type="text" placeholder="Search"></div>
+			<div>
+				<div class="img-holder">
+					<img class="img-radius" src="./image/icon.jpg" alt="">
+				</div>
+				<h4>Tomo H.</h4>
+				<p class="accent gray">992 Followers</p>
+				<p class="gray">Major in Web & Mobile app development at CICCC while be assistant manager at a Italian restaurant in Vancouver.</p>
+				<div class="btn-area flex">
+					<div class="btn-follow">
+						<a href="">Follow</a>
+					</div>
+					<div class="img-holder flex">
+						<a href=""><img src="../image/icon_share_email.svg" alt="" class="white"></a>
+					</div>
+				</div>
+			</div>
+			<div class="related-article">
+				<h4>Related</h4>
+				<div class="flex">
+					<div class="img-holder">
+						<img src="../image/img_article_sample1.jpg" alt="">
+					</div>
+					<p class="text">My accomplished Cat<br>
+					<span class="gray">We keep hearing about how Covid has const...</span></p>
+				</div>
+				<div class="flex">
+					<div class="img-holder">
+						<img src="../image/img_article_sample2.jpg" alt="">
+					</div>
+					<p class="text">“Thinner, Leaner, Stronger”: An Honest Book Review by a Women’s Health Coach</p>
+				</div>
+				<div class="flex">
+					<div class="img-holder">
+						<img src="../image/img_article_sample4.jpg" alt="">
+					</div>
+					<p class="text">I Went Back To The Gym After 2 Years, And This Happened</p>
+				</div>
+
+			</div>
+		</aside>
+	</div>
+	<footer id="respons-footer" class="flex">
+		<div class="img-holder"><img src="../image/icon_share_home.svg" alt=""></div>
+		<div class="img-holder"><img src="../image/icon_share_serch.svg" alt=""></div>
+		<div class="img-holder"><img src="../image/icon_share_write.svg" alt=""></div>
+	</footer>
+
+	<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+</body>
+</html>
